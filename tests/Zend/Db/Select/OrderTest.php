@@ -45,6 +45,20 @@ class Zend_Db_SelectTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider adapterProvider
+     */
+    public function testOrderOfMultiFieldButOnlyOneWithDirection($adapter)
+    {
+        $select = $this->getDbAdapter($adapter)->select();
+        $select->from(array ('p' => 'product'))
+            ->order(array ('productId, userId DESC'));
+
+        $expected = 'SELECT `p`.* FROM `product` AS `p` ORDER BY `productId`, `userId` DESC';
+        $this->assertEquals($expected, $select->assemble(),
+            'Order direction of field failed');
+    }
+
+    /**
+     * @dataProvider adapterProvider
      * @group ZF-381
      */
     public function testOrderOfConditionalFieldWithDirection($adapter)
