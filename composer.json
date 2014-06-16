@@ -1,0 +1,16 @@
+{
+    "name": "dragonbe/zf-378",
+    "description": "Code sample for ordering in directions",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Michelangelo van Dam",
+            "email": "michelangelo@in2it.be"
+        }
+    ],
+    "require": {
+        "zendframework/zendframework1": "1.12.7",
+        "phpunit/phpunit": "3.7.37"
+    }
+}
