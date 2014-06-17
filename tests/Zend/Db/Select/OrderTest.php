@@ -50,9 +50,9 @@ class Zend_Db_SelectTest extends \PHPUnit_Framework_TestCase
     {
         $select = $this->getDbAdapter($adapter)->select();
         $select->from(array ('p' => 'product'))
-            ->order(array ('productId, userId DESC'));
+            ->order(array ('productId', 'userId DESC'));
 
-        $expected = 'SELECT `p`.* FROM `product` AS `p` ORDER BY `productId`, `userId` DESC';
+        $expected = 'SELECT `p`.* FROM `product` AS `p` ORDER BY `productId` ASC, `userId` DESC';
         $this->assertEquals($expected, $select->assemble(),
             'Order direction of field failed');
     }
